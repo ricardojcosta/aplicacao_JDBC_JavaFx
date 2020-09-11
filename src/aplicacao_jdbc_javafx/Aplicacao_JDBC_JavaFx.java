@@ -18,18 +18,24 @@ import javafx.stage.Stage;
  */
 public class Aplicacao_JDBC_JavaFx extends Application {
 
+    private static Scene mainScene;
+
     @Override
     public void start(Stage primaryStage) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
             Parent parent = loader.load();
-            Scene mainScene = new Scene(parent);
+            mainScene = new Scene(parent);
             primaryStage.setScene(mainScene);
             primaryStage.setTitle("Aplicação JavaFX");
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Scene getMainScene() {
+        return mainScene;
     }
 
     /**
