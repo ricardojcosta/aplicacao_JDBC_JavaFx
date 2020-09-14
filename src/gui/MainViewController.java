@@ -34,7 +34,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuItemDepartment() {
-        carregarView("/gui/DepartmentList.fxml");
+        carregarView2("/gui/DepartmentList.fxml");
     }
 
     @FXML
@@ -51,20 +51,36 @@ public class MainViewController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(nomeabsoluto));
             VBox novoVbox = loader.load();
-            
+
             Scene mainScene = aplicacao_jdbc_javafx.Aplicacao_JDBC_JavaFx.getMainScene();
-            VBox mainVBox = (VBox)((ScrollPane)mainScene.getRoot()).getContent();
-            
+            VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
+
             Node mainMenu = mainVBox.getChildren().get(0);
             mainVBox.getChildren().clear();
             mainVBox.getChildren().add(mainMenu);
             mainVBox.getChildren().addAll(novoVbox.getChildren());
-            
+        } catch (IOException e) {
+            Alertas.showAlerta("Erro entrada", "Erro carregar tela", e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
+    private void carregarView2(String nomeabsoluto) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(nomeabsoluto));
+            VBox novoVbox = loader.load();
+
+            Scene mainScene = aplicacao_jdbc_javafx.Aplicacao_JDBC_JavaFx.getMainScene();
+            VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
+
+            Node mainMenu = mainVBox.getChildren().get(0);
+            mainVBox.getChildren().clear();
+            mainVBox.getChildren().add(mainMenu);
+            mainVBox.getChildren().addAll(novoVbox.getChildren());
+
             DepartmentListController controller = loader.getController();
             controller.setDepartmentService(new DepartmentService());
             controller.updateTableView();
-            
-            
+
         } catch (IOException e) {
             Alertas.showAlerta("Erro entrada", "Erro carregar tela", e.getMessage(), Alert.AlertType.ERROR);
         }
