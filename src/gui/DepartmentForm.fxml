@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="222.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="222.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DepartmentFormController">
    <children>
       <GridPane fx:id="grid_Department" layoutX="39.0" layoutY="56.0" prefHeight="133.0" prefWidth="525.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
@@ -30,8 +30,8 @@
             <Label fx:id="lb_Error" prefHeight="17.0" prefWidth="0.0" textFill="#d01c1c" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <HBox fx:id="Hbox_Department" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="btn_Salvar" mnemonicParsing="false" text="Salvar" />
-                  <Button fx:id="btn_Cancelar" mnemonicParsing="false" text="Cancel" />
+                  <Button fx:id="btn_Salvar" mnemonicParsing="false" onAction="#onbtn_Salvar" text="Salvar" />
+                  <Button fx:id="btn_Cancelar" mnemonicParsing="false" onAction="#onbtn_cancelar" text="Cancel" />
                </children>
             </HBox>
          </children>
